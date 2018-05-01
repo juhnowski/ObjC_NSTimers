@@ -26,4 +26,20 @@
 }
 
 
+- (IBAction)startCount:(id)sender {
+    
+    countInt = 0;
+    self.Label.text = [NSString stringWithFormat:@"%i", countInt];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countTimer) userInfo:nil repeats:YES];
+}
+
+- (IBAction)stopButton:(id)sender {
+    [timer invalidate];
+}
+
+-(void)countTimer {
+    countInt += 1;
+    self.Label.text = [NSString stringWithFormat:@"%i", countInt];
+}
+
 @end
